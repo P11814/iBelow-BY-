@@ -6,6 +6,7 @@
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
+ //что это за номер лр?
 //1) Создать класс «Сторона» для хранения длины стороны фигуры. Обеспечить проверку на правильность ввода данных. Предусмотреть свойства для получения состояния объекта.
 //Создать класс «Треугольник», обеспечивающий следующие возможности:
 //• установку и получение длин сторон треугольника;
@@ -42,7 +43,7 @@ namespace task {
         /// </summary>
         public double A_SIDE {
             get {
-                if (this.a_side == null) {
+                if (this.a_side == null) { //a_side типа double, не стоит его сравнивать с null, лучше с 0.0
                     return 0;
                 } else
                     return this.a_side;
@@ -82,14 +83,15 @@ namespace task {
         }
 
         public void TR_CHECK() {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Green; // настройка консоли делается в main
             if (a_side + b_side < c_side || a_side + c_side < b_side || b_side + c_side < a_side) {     // a + b <c && a + c <b && b + c <a
 
                 Console.WriteLine("Треугольник не может существовать");
             } else {
                 Console.WriteLine("Треугольник существует");
                 p_triange = a_side + b_side + c_side;
-                Console.WriteLine("Периметр треугольника = {0}", p_triange);
+                Console.WriteLine("Периметр треугольника = {0}", p_triange); // для подсчета периметра и площади должны быть
+                //организованы отдельные методы, а не мотод проверки существования трегуольника
                 
 				/// <summary>
 				/// ТУТ формума площади треугольника
@@ -133,7 +135,7 @@ namespace task {
         class Program {
             static void Main(string[] args) {
                 side emp1 = new side();
-                emp1.A_SIDE = 6;
+                emp1.A_SIDE = 6; // дайте пользователю возможность самому всести данные по треугольнику
                 emp1.B_SIZE = 8;
                 emp1.C_SIZE = 10;
                 emp1.TR_CHECK();
