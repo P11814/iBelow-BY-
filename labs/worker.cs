@@ -23,7 +23,7 @@ namespace xD {
             this.age = age;
             this.salary = salary;
             this.CITY = city;
-            count++;
+            count++; 
         }
 
         public void SetName(string first) {
